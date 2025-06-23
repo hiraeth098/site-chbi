@@ -1,43 +1,91 @@
-.header {
-    background-color: #0d1b42;
-    color: white;
-    padding: 1rem 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    height: 155px;
-    display: flex;
-    align-items: center;
-    position: relative;
+.headerWrapper {
+  width: 100%;
+}
+
+.topBar {
+  background-color: #081229;
+  padding: 0.4rem 0;
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 2.5rem;
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-.nav a {
-    color: white;
-    text-decoration: nome;
-    font-size: 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding-bottom: 0.5rem;
-    transition: border-bottom 0.3s ease;
+.socialIcons a {
+  color: #fff;
+  font-size: 1.1rem;
+  transition: color 0.2s ease-in-out;
 }
 
-.nav a:hover {
-    border-bottom: #f0c420;
+.socialIcons a:hover {
+  color: #f0c420;
 }
 
+
+.mainNav {
+  background-color: #0d1b42;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  position: relative; 
+}
+
+
+.navLinks {
+  display: flex;
+  gap: 2.5rem;
+  flex: 1; 
+}
+
+
+.navLinks:last-child {
+  justify-content: flex-end;
+}
+
+.navLinks a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid transparent;
+  transition: border-bottom-color 0.3s ease;
+}
+
+.navLinks a:hover {
+  border-bottom-color: #f0c420;
+}
+
+
+.logoContainer {
+  position: absolute;
+  left: 50%;
+  /* Ajuste no 'top' para centralizar na nova altura de 120px */
+  top: -30px; 
+  transform: translateX(-50%);
+  z-index: 10;
+  background-color: #f0c420;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  width: 140px; 
+  height: 140px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoContainer a {
+  display: block; 
+}
