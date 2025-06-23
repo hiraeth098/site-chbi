@@ -1,0 +1,36 @@
+# Arquivo: .gitignore
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Strapi
+.tmp/
+build/
+dist/
+*.db
+
+# Next.js
+.next/
+out/
+
+# Dependencies
+/node_modules
+.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# IDE configs
+.idea/
+.vscode/
