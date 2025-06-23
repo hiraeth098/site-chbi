@@ -1,0 +1,29 @@
+/* Arquivo: src/app/page.module.css */
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto; 
+  display: flex;
+  gap: 2rem; 
+}
+
+.mainContent {
+  flex: 2; 
+}
+
+.sidebar {
+  flex: 1; 
+  background-color: #f4f4f4;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.sidebar h2 {
+    font-size: 1.8rem;
+    color: #0d1b42;
+    border-bottom: 3px solid #f0c420;
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}

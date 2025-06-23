@@ -1,0 +1,30 @@
+.article {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: #0d1b42;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.publishedDate {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 2rem;
+}
+
+.content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+.content p {
+    margin-bottom: 1.5rem;
+}
