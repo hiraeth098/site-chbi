@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Header.module.css';
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 export default function Header() {
   return (
@@ -12,6 +12,7 @@ export default function Header() {
         <div className={styles.container}>
           <div className={styles.socialIcons}>
             <a href="#" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
+            <a href="#" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
             <a href="#" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
             <a href="#" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
           </div>
@@ -37,7 +38,7 @@ export default function Header() {
 
           
           <nav className={styles.navLinks}>
-            <Link href="/projetos-e-programas">Projetos</Link>
+            <Link href="/projetos-e-programas">Projetos e programas</Link>
             <Link href="/contato">Contato</Link>
             
           </nav>
