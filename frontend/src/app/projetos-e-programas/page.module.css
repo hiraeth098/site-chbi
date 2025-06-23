@@ -1,0 +1,73 @@
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #c4c124;
+  border-bottom: 3px solid #f0c420;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 3rem;
+}
+
+.documentList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.documentCard {
+  background-color: #f9f9f9; 
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex; 
+  align-items: center;
+  gap: 1.5rem; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.iconWrapper {
+  font-size: 3rem; 
+  color: #B71C1C; 
+}
+
+.cardContent {
+  flex-grow: 1; 
+}
+
+.cardTitle {
+  font-size: 1.3rem;
+  margin: 0 0 0.5rem 0;
+  color: #0d1b42;
+}
+
+.cardDate {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 0;
+}
+
+.downloadButton {
+  background-color: #0d1b42;
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.downloadButton:hover {
+  background-color: #1a3275;
+}
