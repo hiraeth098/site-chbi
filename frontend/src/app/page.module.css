@@ -1,29 +1,20 @@
-/* Arquivo: src/app/page.module.css */
-
 .container {
   width: 90%;
-  max-width: 1200px;
-  margin: 2rem auto; 
-  display: flex;
-  gap: 2rem; 
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
 }
 
-.mainContent {
-  flex: 2; 
+.title {
+  font-size: 2.5rem;
+  color: #0d1b42;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
-.sidebar {
-  flex: 1; 
-  background-color: #f4f4f4;
-  padding: 1.5rem;
+.accordionContainer {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
   border-radius: 8px;
-}
-
-.sidebar h2 {
-    font-size: 1.8rem;
-    color: #0d1b42;
-    border-bottom: 3px solid #f0c420;
-    padding-bottom: 0.5rem;
-    margin-top: 0;
-    margin-bottom: 1.5rem;
+  overflow: hidden; /* Garante que as bordas arredondadas funcionem bem */
 }

@@ -53,8 +53,6 @@ export default function Header() {
                   <div className={styles.megaMenuColumn}>
                     <h3>Documentos</h3>
                     <Link href="/documentos-institucionais">Documentos Institucionais</Link>
-                    <Link href="/resolucoes">Resoluções</Link>
-                    <Link href="/portarias">Portarias</Link>
                   </div>
                 </div>
               </div>
