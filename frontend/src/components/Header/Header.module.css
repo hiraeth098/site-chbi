@@ -89,3 +89,87 @@
 .logoContainer a {
   display: block; 
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Arquivo: src/components/Header/Header.module.css */
+/* Substitua as regras antigas do dropdown por estas */
+
+/* --- ESTILOS PARA O MEGAMENU DROPDOWN --- */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  color: white;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: inherit;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid transparent;
+}
+
+/* O container do megamenu que se abre */
+.dropdownContent {
+  /* Controlando a visibilidade com opacidade para permitir animação */
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 10px); /* Começa um pouco abaixo e centralizado */
+  background-color: #0d1b42; /* Fundo azul escuro como na referência */
+  min-width: 700px; /* Largura do megamenu */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+  z-index: 20;
+  border-radius: 0 0 8px 8px;
+  padding: 2rem;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+/* A MÁGICA DA ANIMAÇÃO */
+.dropdown:hover .dropdownContent {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0); /* Sobe para a posição final */
+}
+
+/* O grid que organiza as colunas */
+.megaMenuGrid {
+  display: grid;
+  /* Cria 3 colunas de tamanho igual */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 2rem; /* Espaço entre as colunas */
+}
+
+.megaMenuColumn h3 {
+  color: #f0c420; /* Título da coluna em dourado */
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid #3d4a6b;
+  padding-bottom: 0.8rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.megaMenuColumn a {
+  color: #dbe0e8; /* Links com um branco mais suave */
+  font-weight: normal;
+  text-transform: none;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 0;
+  transition: color 0.2s ease;
+}
+
+.megaMenuColumn a:hover {
+  color: #fff;
+}
