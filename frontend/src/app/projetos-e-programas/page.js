@@ -1,16 +1,20 @@
-// Arquivo: src/app/projetos-e-programas/page.js
 import styles from './page.module.css';
 import ProjectList from '@/components/ProjectList/ProjectList';
 
-
 async function getProjetos() {
-  const url = 'http://localhost:1337/api/documentos?populate=descricao';
-  const res = await fetch(url);
-  if (!res.ok) throw new Error('Falha ao buscar projetos');
+  // CORREÇÃO: Adicionado o populate=arquivo para buscar os dados do arquivo anexado.
+  const url = 'http://localhost:1337/api/documentos?populate=arquivo';
+  const res = await fetch(url, { cache: 'no-store' }); 
+  
+  if (!res.ok) {
+    const errorData = await res.json().catch(() => ({ message: 'Resposta não é JSON' }));
+    console.error('Erro recebido do Strapi:', res.status, res.statusText, errorData);
+    throw new Error('Falha ao buscar projetos');
+  }
+
   const data = await res.json();
   return data.data;
 }
-
 
 export default async function ProjetosPage() {
   const projetos = await getProjetos();
@@ -18,7 +22,6 @@ export default async function ProjetosPage() {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Projetos e Programas</h1>
-      {/* Aqui chamamos nosso novo componente interativo, passando os dados para ele */}
       <ProjectList projects={projetos} />
     </div>
   );

@@ -1,25 +1,54 @@
 /* Arquivo: src/components/ProjectList/ProjectList.module.css */
+
+.categorySection {
+  margin-bottom: 2.5rem;
+}
+
+.categoryTitleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.categoryBar {
+  width: 6px;
+  height: 35px;
+  background-color: #0d1b42; /* O azul escuro do nosso site */
+  border-radius: 3px;
+}
+
+.categoryTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0d1b42;
+  margin: 0;
+}
+
 .listContainer {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem; /* Um espaço menor entre os itens */
+  padding-left: 1.6rem; /* Alinha os itens com o título */
 }
 
 .projectItem {
-  background-color: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 1.5rem 2rem;
+  background-color: transparent; /* Começa transparente */
+  border: none;
+  border-left: 6px solid #e0e0e0; /* Barra lateral cinza claro */
+  padding: 1rem 1.5rem;
   width: 100%;
   text-align: left;
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #0d1b42;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, border-left-color 0.3s ease;
 }
 
+/* Efeito de hover que você pediu */
 .projectItem:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background-color: #f0c420; /* Fundo amarelo/dourado */
+  border-left-color: #0d1b42; /* Barra lateral fica azul escuro */
+  color: #0d1b42; /* Texto fica azul escuro para bom contraste */
 }

@@ -3,28 +3,36 @@
 
 import { useState } from 'react';
 import styles from './ProjectList.module.css';
-// CORREÇÃO FINAL: O caminho correto para um componente irmão.
-import Modal from '../Modal/Modal'; 
+import Modal from '@/components/Modal/Modal';
 
 export default function ProjectList({ projects }) {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
+    // O container principal foi removido daqui e colocado na página
     <>
-      <div className={styles.listContainer}>
-        {projects && projects.length > 0 ? (
-          projects.map((project) => (
-            <button 
-              key={project.id} 
-              className={styles.projectItem}
-              onClick={() => setSelectedProject(project)}
-            >
-              {project.titulo}
-            </button>
-          ))
-        ) : (
-          <p>Nenhum projeto encontrado.</p>
-        )}
+      {/* Nova estrutura de categoria */}
+      <div className={styles.categorySection}>
+        <div className={styles.categoryTitleWrapper}>
+          <div className={styles.categoryBar}></div>
+          <h2 className={styles.categoryTitle}>Projetos</h2>
+        </div>
+        
+        <div className={styles.listContainer}>
+          {projects && projects.length > 0 ? (
+            projects.map((project) => (
+              <button 
+                key={project.id} 
+                className={styles.projectItem}
+                onClick={() => setSelectedProject(project)}
+              >
+                {project.titulo}
+              </button>
+            ))
+          ) : (
+            <p>Nenhum projeto encontrado.</p>
+          )}
+        </div>
       </div>
 
       {selectedProject && (
