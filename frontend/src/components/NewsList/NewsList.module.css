@@ -1,45 +1,72 @@
+/* Ficheiro: src/components/NewsList/NewsList.module.css */
+
 .newsSection {
-    width: 100%;
+  width: 100%;
 }
 
 .sectionTitle {
-    font-size: 1.8rem;
-    color: #e0f80a;
-    border-bottom: 3px solid #f0c420;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #0d1b42;
+  border-bottom: 3px solid #f0c420;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
+/* A nossa nova grelha de notícias */
 .newsGrid {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+  display: grid;
+  /* Cria colunas responsivas: 1 em ecrãs pequenos, 2 em médios, 3 em grandes */
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* Media queries para o layout da grelha */
+@media (min-width: 768px) {
+  .newsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .newsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
 }
 
 .newsCard {
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden; /* Garante que a imagem não ultrapasse as bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Faz todos os cards terem a mesma altura */
 }
 
 .newsCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.newsCard h3 {
-    margin: 0;
-    font-size: 1.3rem;
-    color: #333;
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 200px; /* Altura fixa para a imagem */
 }
 
-.link {
-    text-decoration: none;
-    color: inherit;
+.cardContent {
+  padding: 1.5rem;
+  flex-grow: 1; /* Faz esta área crescer para alinhar os cards */
 }
 
-
-
+.cardContent h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}

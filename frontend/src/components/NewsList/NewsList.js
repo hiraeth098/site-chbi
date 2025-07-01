@@ -2,7 +2,8 @@ import Link from 'next/link';
 import styles from './NewsList.module.css';
 
 async function getNoticias() {
-    const res = await fetch('http://localhost:1337/api/noticias');
+    const url = 'http://localhost:1337/api/noticias?populate=imagem_destacada';
+    const res = await fetch(url, {cache: 'no-store'});
     if (!res.ok) {
         throw new Error('Falha ao  buscar dados da API');
     }
@@ -17,17 +18,33 @@ export default async function NewsList() {
         return <p>Nenhuma notícia encontrada no momento.</p>;
     }
     return (
-    <section className={styles.newsSection}>
-      <h2 className={styles.sectionTitle}>Últimas Notícias</h2>
-      <div className={styles.newsGrid}>
-        {noticias.map((noticia) => (
-            <Link key={noticia.id} href={`/noticias/${noticia.slug}`} className={styles.link}>
-                <div key={noticia.id} className={styles.newsCard}>
-                    <h3>{noticia.titulo}</h3>
+        <section className={styles.newsSection}>
+            <h2 className={styles.sectionTitle}>Últimas Notícias</h2>
+            <div className={styles.newsGrid}>
+                {noticias.map((noticia) => {
+                    const imageUrl = noticia.imagem_destacada?.url
+                        ? `http://localhost:1337${noticia.imagem_destacada.url}`
+                        : "https://placehold.co/600x400/0d1b42/f0c420?text=CHBI";
+                    return (
+                        <Link key={noticia.id} href={`/noticias/${noticia.slug}`} className={styles.cardLink}>
+              <div className={styles.newsCard}>
+                <div className={styles.imageContainer}>
+                  <Image
+                    src={imageUrl}
+                    alt={noticia.titulo}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    style={{ objectFit: 'cover' }}
+                  />
                 </div>
+                <div className={styles.cardContent}>
+                  <h3>{noticia.titulo}</h3>
+                </div>
+              </div>
             </Link>
-        ))}
-      </div>
-    </section>
+                    );
+                })}
+            </div>
+        </section>
   );
 }
