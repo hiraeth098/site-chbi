@@ -91,3 +91,16 @@
 .downloadButton:hover {
   background-color: #1a3275;
 }
+
+
+.imagePreviewContainer {
+  width: 100%;
+  margin-bottom: 1.5rem; 
+}
+
+.imagePreview {
+  width: 100%;
+  height: auto; 
+  border-radius: 8px; 
+  background-color: #f0f0f0; 
+}

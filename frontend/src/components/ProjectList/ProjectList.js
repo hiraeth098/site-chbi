@@ -1,4 +1,4 @@
-// Arquivo: src/components/ProjectList/ProjectList.js
+// Ficheiro: src/components/ProjectList/ProjectList.js
 "use client";
 
 import { useState } from 'react';
@@ -9,9 +9,7 @@ export default function ProjectList({ projects }) {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    // O container principal foi removido daqui e colocado na página
     <>
-      {/* Nova estrutura de categoria */}
       <div className={styles.categorySection}>
         <div className={styles.categoryTitleWrapper}>
           <div className={styles.categoryBar}></div>
@@ -36,6 +34,7 @@ export default function ProjectList({ projects }) {
       </div>
 
       {selectedProject && (
+        // A correção é garantir que a prop 'onClose' está a ser passada aqui
         <Modal 
           project={selectedProject} 
           onClose={() => setSelectedProject(null)} 
