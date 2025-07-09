@@ -1,13 +1,10 @@
-// Ficheiro: src/components/Modal/Modal.js
 "use client";
 
 import Image from 'next/image';
 import styles from './Modal.module.css';
 import { FaTimes } from 'react-icons/fa';
 
-// Garantimos que 'onClose' está a ser recebido como uma prop
 export default function Modal({ project, onClose }) {
-  // Medida de segurança para evitar erros se o projeto não existir
   if (!project) return null;
 
   const handleContentClick = (e) => {
@@ -15,9 +12,11 @@ export default function Modal({ project, onClose }) {
   };
 
   const isImage = project.arquivo && project.arquivo.mime.startsWith('image/');
+  
+  // A MUDANÇA ESTÁ AQUI:
+  const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
 
   return (
-    // O onClick aqui chama a função 'onClose' que vem das props
     <div className={styles.modalBackdrop} onClick={onClose}>
       <div className={styles.modalContent} onClick={handleContentClick}>
         <button className={styles.closeButton} onClick={onClose}>
@@ -29,7 +28,7 @@ export default function Modal({ project, onClose }) {
           {isImage && (
             <div className={styles.imagePreviewContainer}>
               <Image
-                src={`http://localhost:1337${project.arquivo.url}`}
+                src={`${strapiUrl}${project.arquivo.url}`}
                 alt={`Preview do projeto ${project.titulo}`}
                 width={project.arquivo.width}
                 height={project.arquivo.height}
@@ -53,7 +52,7 @@ export default function Modal({ project, onClose }) {
         {project.arquivo && !isImage && (
           <div className={styles.modalFooter}>
             <a 
-              href={`http://localhost:1337${project.arquivo.url}`}
+              href={`${strapiUrl}${project.arquivo.url}`}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.downloadButton}

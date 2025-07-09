@@ -2,13 +2,14 @@ import styles from './page.module.css';
 import ProjectList from '@/components/ProjectList/ProjectList';
 
 async function getProjetos() {
-  // CORREÇÃO: Adicionado o populate=arquivo para buscar os dados do arquivo anexado.
-  const url = 'http://localhost:1337/api/documentos?populate=arquivo';
+  const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
+  const url = `${strapiUrl}/api/documentos?populate=arquivo`;
+  
   const res = await fetch(url, { cache: 'no-store' }); 
   
   if (!res.ok) {
-    const errorData = await res.json().catch(() => ({ message: 'Resposta não é JSON' }));
-    console.error('Erro recebido do Strapi:', res.status, res.statusText, errorData);
+    const errorData = await res.json().catch(() => ({}));
+    console.error('Erro recebido do Strapi:', errorData);
     throw new Error('Falha ao buscar projetos');
   }
 
